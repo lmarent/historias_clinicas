@@ -36,6 +36,7 @@ $ source historias_clinicas/bin/activate
 (historias_clinicas) $ python manage.py createsuperuser
 (historias_clinicas) $ python manage.py runserver
 # Load the site at http://127.0.0.1:8000
+```
 
 ## Documentation
 
