@@ -21,6 +21,22 @@
 
 Requiere Python 3.8, PostgreSQL y herramientas y librerias dependientes del sistema operativo.
 
+```
+$ git clone https://github.com/wsvincent/djangox.git
+$ cd djangox
+```
+
+### Pip
+
+```
+$ python3 -m venv djangox
+$ source djangox/bin/activate
+(djangox) $ pip install -r requirements.txt
+(djangox) $ python manage.py migrate
+(djangox) $ python manage.py createsuperuser
+(djangox) $ python manage.py runserver
+# Load the site at http://127.0.0.1:8000
+
 ## Documentation
 
 ## Contributing
