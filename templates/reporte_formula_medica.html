@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<title>Formula Medica</title>
+
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:12px;
+  overflow:hidden;padding:3px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0pky{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-0tit{border-color:inherit;text-align:left;vertical-align:top; font-family:Arial, sans-serif;font-size:12px}
+
+body {
+  width: 600px;
+  height: 50%;
+}
+
+</style>
+
+<table class="tg" style="height: 460px; width: 100%">
+<thead>
+<tr style="height: 36px;">
+<th class="tg-0pky" style="height: 54px; width: 50%;" colspan="6" rowspan="2">FORMULA MEDICA</th>
+<th style="height: 36px; width: 50%;" colspan="6">
+  <div class="tg-0tit" style="float:left;margin-right:20px; width: 100%">
+    <label>Fecha y hora de expedicion (AAAA-MM-DD)</label>  
+  </div>
+  <div style="float:left;margin-right:20px; width: 100%">
+    <label>{% now "Y:m:d H:i" %}</label>
+  </div>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr style="height: 10px;">
+<td style="height: 18px; text-align: center; width: 100%" colspan="12">DATOS DEL PRESTADOR</td>
+</tr>
+
+<tr style="height: 25px;">
+<td class="tg-0pky" style="height: 18px; width: 34%;" colspan="4" >
+  <div style="float:left;margin-right:20px;">
+    <label>Departamento:</label>  
+    Cundinamarca
+  </div> 
+</td>
+<td class="tg-0pky" style="height: 18px; width: 34%;" colspan="4">
+  <div style="float:left;margin-right:20px;">
+    <label for="name">Municipio:</label>  
+    <label>{{medico.ciudad}}</label>
+  </div>
+</td>
+<td class="tg-0pky" style="height: 18px; width: 32%;" colspan="4">
+  <div style="float:left;margin-right:20px;">
+    <label for="name">Registro Medico</label>  
+    <label>{{medico.registro_medico}}</label>
+  </div>  
+</td>
+</tr>
+
+<tr style="height: 18px;">
+<td class="tg-0pky" style="height: 18px; width: 50%;" colspan="6">
+  <div style="float:left;margin-right:20px;">
+    <label for="name">Doc Identificacion:</label>  
+    <label>{{medico.numero_documento}}</label>
+  </div>  
+</td>
+<td class="tg-0pky" style="height: 18px; width: 50%;" colspan="6">
+  <div style="float:left;margin-right:20px;">
+    <label for="name">Nombre:</label>  
+    <label>{{medico.nombre_impreso}}</label>
+  </div>  
+</td>
+</tr>
+<tr style="height: 18px;">
+<td class="tg-0pky" style="height: 18px; width: 50%;" colspan="6">
+  <div style="float:left;margin-right:20px;">
+    <label for="name">Direccion:</label>  
+    <label>{{medico.direccion}}</label>
+  </div>  
+</td>
+<td class="tg-0pky" style="height: 18px; width: 50%;" colspan="6">
+  <div style="float:left;margin-right:20px;">
+    <label for="name">Telefono:</label>  
+    <label>{{medico.telefono}}</label>
+  </div>  
+</td>
+</tr>
+
+<tr style="height: 18px;">
+<td class="tg-0pky" style="height: 12px; width: 100%; text-align: center;" colspan="12">DATOS DEL PACIENTE</td>
+</tr>
+<tr style="height: 36px;">
+<td class="tg-0pky" style="height: 36px; width: 34%;" colspan="4">
+  <div style="float:left;margin-right:20px;">
+    <label for="name">Doc Identificacion:</label>  
+  </div>  
+  <div style="float:left;margin-right:20px;">
+    <label>{{paciente.numero_documento}}</label>
+  </div>  
+</td>
+<td class="tg-0pky" style="height: 36px; width: 34%;" colspan="4">
+  <div style="float:left;margin-right:20px;">
+    <label for="name">Nombres:</label>  
+  </div>  
+  <div style="float:left;margin-right:20px;">
+    <label>{{paciente.nombres}}</label>
+  </div>  
+
+</td>
+<td class="tg-0pky" style="height: 36px; width: 34%;" colspan="4">
+  <div style="float:left;margin-right:20px;">
+    <label>Apellidos:</label>  
+  </div>  
+  <div style="float:left;margin-right:20px;">
+    <label>{{paciente.apellidos}}</label>
+  </div>  
+</td>
+</tr>
+
+<tr>
+<td class="tg-0pky" style="height: 36px; width: 50%;" colspan="6">
+  <div style="float:left;margin-right:20px;">
+    <label>Diagnostico Principal:</label>  
+  </div>  
+  <div style="float:left;margin-right:20px;">
+    <label>{{diagnostico.diagnostico_principal}}</label>
+  </div>  
+
+</td>
+<td class="tg-0pky" style="height: 36px; width: 50%;" colspan="6">
+  <div style="float:left;margin-right:20px;">
+    <label>Diagnostico secundario:</label>  
+  </div>  
+  <div style="float:left;margin-right:20px;">
+    <label>{{diagnostico.diagnostico_secundario1}}</label>
+  </div>  
+
+</td>
+</tr>
+
+<tr>
+<td class="tg-0pky" style="height: 10px; width: 100%; text-align: left;" colspan="12" width= "694px">
+  <div style="float:left;margin-right:20px;" colspan="12">
+    <label for="name">MEDICAMENTOS</label>     
+  </div>
+  {%if consulta.historias_consultaformulacion_consulta.all %}
+  {% for medicamento in consulta.historias_consultaformulacion_consulta.all %}
+    <br>
+    <div style="float:left;margin-right:20px;" colspan="12">
+      <label>{{ forloop.counter }} - {{medicamento.nombre_del_medicamento}} - {{medicamento.cantidad}} - {{medicamento.vias_suministro_medicamento}} - {{medicamento.dosificacion}} - {{medicamento.tiempoUso}}</label>      
+    </div>
+  {% endfor %}
+  {% else %}
+    <br>    
+    <div style="float:left;margin-right:20px;" colspan="12">
+      <label>Ninguno</label>      
+    </div>  
+  {% endif %}
+
+</td>
+</tr>
+
+<tr style="height: 18px;">
+<td class="tg-0pky" style="height: 18px; width: 100%;" colspan="12">PROFESIONAL TRATANTE</td>
+</tr>
+<tr style="height: 18px;">
+<td class="tg-0pky" style="height: 18px; width: 50%;" colspan="6">
+  <div style="float:left;margin-right:20px;">
+    <label>Documento de identificacion:</label>  
+  </div>  
+  <div style="float:left;margin-right:20px;">
+    <label>{{medico.numero_documento}}</label>
+  </div>  
+
+</td>
+<td class="tg-0pky" style="height: 18px; width: 50%;" colspan="6">
+  <div style="float:left;margin-right:20px;">
+    <label>Nombre:</label>  
+  </div>  
+  <div style="display:inline-block;margin-right:20px;">
+    <label>{{medico.nombre_impreso}}</label>
+  </div>  
+
+</td>
+</tr>
+
+<tr style="height: 18px;">
+<td class="tg-0pky" style="height: 18px; width: 100%;" colspan="6">
+  <div style="float:left;margin-right:20px;">
+    <label for="name">Registro profesional:</label>  
+  </div>  
+  <div style="float:left;margin-right:20px;">
+    <label>{{medico.registro_medico}}</label>
+  </div>  
+</td>
+<td class="tg-0pky" style="height: 36px; width: 415px;" colspan="6" rowspan="2">Firma</td>
+</tr>
+<tr style="height: 18px;">
+<td class="tg-0pky" style="height: 18px; width: 273px;" colspan="6" width="273px">
+  <div style="float:left;margin-right:20px;">
+    <label for="name">Especialidad:</label>  
+  </div>  
+  <div style="float:left;margin-right:20px;">
+    <label>{{medico.especialidad}}</label>
+  </div>  
+
+</td>
+</tr>
+
+
+</tbody>
+</table>
+
+</body>
+</html>

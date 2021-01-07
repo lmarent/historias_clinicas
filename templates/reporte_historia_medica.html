@@ -1,0 +1,143 @@
+<h2 style="text-align: center;"><strong>REPORTE DE HISTORIA MEDICA</strong></h2>
+
+<h3><strong>Datos del Doctor</strong></h3>
+<table style="height: 28px; width: 100%; border-collapse: collapse; border-style: hidden;" border="0">
+<tbody>
+<tr style="height: 10px;">
+<td style="width: 15%; height: 10px;">Nombre:</td>
+<td style="width: 85%; height: 10px;">{{medico.nombre_impreso}}</td>
+</tr>
+
+<tr style="height: 10px;">
+<td style="width: 15%; height: 10px;">Especialidad:</td>
+<td style="width: 85%; height: 10px;">{{medico.especialidad}}</td>
+</tr>
+
+<tr style="height: 10px;">
+<td style="width: 15%; height: 10px;">Direccion:</td>
+<td style="width: 50%; height: 10px;">{{medico.direccion}}</td>
+<td style="width: 15%; height: 10px;">Telefono:</td>
+<td style="width: 20%; height: 10px;">{{medico.telefono}}</td>
+</tr>
+
+<tr style="height: 10px;">
+<td style="width: 25%; height: 10px;">Registro Medico:</td>
+<td style="width: 25%; height: 10px;">{{medico.registro_medico}}</td>
+<td style="width: 25%; height: 10px;">Cedula:</td>
+<td style="width: 25%; height: 10px;">{{medico.numero_documento}}</td>
+</tr>
+</tbody>
+</table>
+<h3><strong>Datos del Paciente</strong></h3>
+<table style="height: 28px; width: 100%; border-collapse: collapse; border-style: hidden;" border="0">
+<tbody>
+<tr style="height: 10px;">
+<td style="width: 15%; height: 10px;">Nombres:</td>
+<td style="width: 85%; height: 10px;">{{paciente.nombres}}</td>
+</tr>
+<tr style="height: 18px;">
+<td style="width: 15%; height: 10px;">Apellidos:</td>
+<td style="width: 85%; height: 10px;">{{paciente.apellidos}}</td>
+</tr>
+</tbody>
+</table>
+<table style="height: 23px; width: 100%; border-collapse: collapse; border-style: hidden;" border="0">
+<tbody>
+<tr style="height: 10px;">
+<td style="width: 15%; height: 10px;">Edad:</td>
+<td style="width: 15%; height: 10px;">{{paciente.edad}} Anos</td>
+<td style="width: 20%;">&nbsp;</td>
+<td style="width: 25%; height: 10px;">Num Documento:</td>
+<td style="width: 25%; height: 10px;">{{paciente.numero_documento}}</td>
+</tr>
+</tbody>
+</table>
+
+{% for consulta in consultas %}
+<p style="text-align: center;"><strong>Fecha de Consulta: {{consulta.date_consulta}}</strong></p>
+<table style="height: 23px; width: 100%; border-collapse: collapse; border-style: hidden;" border="0">
+<tbody>
+<tr style="height: 10px;">
+<td style="width: 25%; height: 10px; text-align: left;">Motivo:</td>
+<td style="width: 85%; height: 10px; text-align: left;">{{consulta.motivo}}</td>
+</tr>
+<tr style="height: 10px;">
+<td> </td>
+</tr>
+
+<tr style="height: 10px;">
+<td style="width: 25%; height: 10px; text-align: left;">Enfermedad Actual:</td>
+<td style="width: 85%; height: 10px; text-align: left;">{{consulta.enfermedad_actual}}</td>
+</tr>
+
+</tbody>
+</table>
+<h3 style="text-align: left;"><strong>Antecedentes</strong></h3>
+<table style="height: 23px; width: 100.142%; border-collapse: collapse; border-style: hidden;" border="0">
+<tbody>
+{% for antecedente in consulta.historias_consultaantecedentes_consulta.all %}
+<tr style="height: 10px;">
+<td style="width: 25%; height: 18px;">{{antecedente.tipo_antecedentes}}</td>
+<td style="width: 75%; height: 18px;">{{antecedente.texto_encontrado}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<h3 style="text-align: left;"><strong>Examen Fisico</strong></h3>
+<table style="height: 23px; width: 100.142%; border-collapse: collapse; border-style: hidden;" border="0">
+<tbody>
+{% for examen_fisico in consulta.historias_consultaexamenfisico_consulta.all %}
+<tr style="height: 10px;">
+<td style="width: 25%; height: 18px;">{{examen_fisico.tipo_examen}}</td>
+<td style="width: 75%; height: 18px;">{{examen_fisico.texto_encontrado}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<h3 style="text-align: left;"><strong>Diagnostico</strong></h3>
+<table style="height: 23px; width: 100.142%; border-collapse: collapse; border-style: hidden;" border="0">
+<tbody>
+{% for diagnostico in consulta.historias_consultadiagnostico_consulta.all %}
+<tr style="height: 10px;">
+<td style="width: 25%; height: 18px;">Principal:</td>
+<td style="width: 75%; height: 18px;">{{diagnostico.diagnostico_principal}}</td>
+</tr>
+{% if diagnostico.diagnostico_secundario %}
+<tr style="height: 10px;">
+<td style="width: 25%; height: 18px;">Secundario Uno:</td>
+<td style="width: 75%; height: 18px;">{{diagnostico.diagnostico_secundario}}</td>
+</tr>
+{% endif %}
+{% if diagnostico.riesgo_paciente %}
+<tr style="height: 10px;">
+<td style="width: 25%; height: 18px;">Riesgo:</td>
+<td style="width: 75%; height: 18px;">{{diagnostico.riesgo_paciente}}</td>
+</tr>
+{% endif %}
+{% if diagnostico.explicacion %}
+<tr style="height: 10px;">
+<td style="width: 25%; height: 18px;">Explicacion:</td>
+<td style="width: 75%; height: 18px;">{{diagnostico.explicacion}}</td>
+</tr>
+{% endif %}
+{% endfor %}
+</tbody>
+</table>
+<h3 style="text-align: left;"><strong>Tratamiento</strong></h3>
+<table style="height: 23px; width: 100.142%; border-collapse: collapse; border-style: hidden;" border="0">
+<tbody>
+{% for tratamiento in consulta.historias_consultatratamiento_consulta.all %}
+<tr style="height: 10px;">
+<td style="width: 23.7926%; height: 18px;">{{tratamiento.tratamiento}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endfor %}
+<p style="text-align: left;">&nbsp;</p>
+<p style="text-align: left;">&nbsp;</p>
+<p style="text-align: left;">{{medico.nombre_impreso}}</p>
+<p style="text-align: left;">Registro Medico: {{medico.registro_medico}}</p>
+<p style="text-align: left;">&nbsp;</p>
+<p style="text-align: left;">&nbsp;</p>
+<p style="text-align: left;">Firma</p>
