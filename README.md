@@ -13,11 +13,11 @@
 - [Licencia](#licencia)
 
 
-## Features
+## Caracteristicas
 
 - Software simple para uso de los neurologos en Colombia.
 
-## Installation
+## Instalación
 
 Requiere Python 3.8, PostgreSQL y herramientas y librerias dependientes del sistema operativo.
 
@@ -38,16 +38,16 @@ $ source historias_clinicas/bin/activate
 # Load the site at http://127.0.0.1:8000
 ```
 
-## Documentation
+## Documentación
 
-## Contributing
+## Contribuir
 
 Agradecemos sus contribuciones y hacemos todo lo posible para brindarle tutoría y apoyo. Si está buscando un problema que abordar, eche un vistazo a los problemas etiquetados [`Help Wanted`](https://github.com/lmarent/historias_clinicas/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22).
 
-Si nada llama su atención, compruebe [el roadmap del software](https://github.com/lmarent/historias_clinicas/projects/12) o inventa una característica. Solo escríbenos o abre un nuevo caso https://github.com/lmarent/historias_clinicas/issues/new) and we’ll work out how to handle it.
+Si nada llama su atención, compruebe [el roadmap del software](https://github.com/lmarent/historias_clinicas/projects/12) o compartanos una característica que le gustaria que tuviera el software. Solo escríbenos o abre un nuevo caso https://github.com/lmarent/historias_clinicas/issues/new) y le trabajaremos para solucionarlo.
 
 
-## License
+## Licencia
 
 Descargo de responsabilidad: Todo lo que ve aquí es abierto y de uso gratuito siempre que cumpla con la licencia [The MIT License](LICENSE). No hay cargos ocultos. Prometemos hacer nuestro mejor esfuerzo para corregir errores y mejorar el código.
 
