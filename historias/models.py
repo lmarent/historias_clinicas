@@ -297,7 +297,7 @@ class Diagnostico(models.Model):
         return self.codigo_int + ' - ' + self.nombre
 
     def __str__(self):
-        return self.nombre
+        return self.codigo_int + ' - ' + self.nombre
         
     def ingresoDatos():
         csv_filepathname="C:\Historias\hist\historias\Enfermedades.csv"
@@ -417,6 +417,7 @@ class Consulta(models.Model):
     enfermedad_actual = models.TextField()
     certificacion = models.TextField(blank=True, null=True)
     interconsulta = models.TextField(blank=True, null=True)
+    incapacidad_medica = models.TextField(blank=True, null=True)
 
     def __unicode__(self):
         return self.paciente.primer_nombre + ' ' + self.paciente.segundo_nombre + ' ' + self.paciente.primer_apellido + ' ' +  self.paciente.segundo_apellido + ' ' + self.date_consulta.strftime("%d/%m/%y")

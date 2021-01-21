@@ -141,3 +141,51 @@ def generar_reporte_certificacion(request, consulta: Consulta):
         response = HttpResponse(file.read(), content_type='application/pdf')
         response['Content-Disposition'] = 'inline; filename={0}'.format(file_name)
         return response
+
+
+def generar_reporte_incapacidad(request, consulta: Consulta):
+
+    medico = Medico.objects.filter(usuario_id=request.user.pk).order_by('numero_documento').first()
+    # parsea el template con el contexto
+    file_name = 'incapacidad.pdf'
+
+    paciente = Paciente.objects.filter(pk=consulta.paciente.id).first()
+    consultas = []
+    consultas.append(consulta)
+    html_string = render_to_string('reporte_incapacidad_medica.html', 
+                                   {'medico': medico, 
+                                    'paciente' : paciente, 
+                                    'consultas': consultas})
+    html = HTML(string = html_string)
+    result = html.write_pdf(file_name)
+
+
+    # Creating http response
+    with open(file_name, 'rb') as file:
+        response = HttpResponse(file.read(), content_type='application/pdf')
+        response['Content-Disposition'] = 'inline; filename={0}'.format(file_name)
+        return response
+
+
+def generar_reporte_interconsulta(request, consulta: Consulta):
+
+    medico = Medico.objects.filter(usuario_id=request.user.pk).order_by('numero_documento').first()
+    # parsea el template con el contexto
+    file_name = 'interconsulta.pdf'
+
+    paciente = Paciente.objects.filter(pk=consulta.paciente.id).first()
+    consultas = []
+    consultas.append(consulta)
+    html_string = render_to_string('reporte_interconsulta.html', 
+                                   {'medico': medico, 
+                                    'paciente' : paciente, 
+                                    'consultas': consultas})
+    html = HTML(string = html_string)
+    result = html.write_pdf(file_name)
+
+
+    # Creating http response
+    with open(file_name, 'rb') as file:
+        response = HttpResponse(file.read(), content_type='application/pdf')
+        response['Content-Disposition'] = 'inline; filename={0}'.format(file_name)
+        return response

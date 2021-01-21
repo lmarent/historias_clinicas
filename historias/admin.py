@@ -37,6 +37,8 @@ from .reports import generar_reporte_consulta
 from .reports import generar_reporte_formula_medica
 from .reports import generar_reporte_examenes
 from .reports import generar_reporte_certificacion
+from .reports import generar_reporte_incapacidad
+from .reports import generar_reporte_interconsulta
 # from historias.reports import ReportParaclinicos
 #from geraldo.generators import PDFGenerator
 
@@ -241,7 +243,8 @@ class ConsultaTratamientoInline(admin.TabularInline):
 
 class ConsultaAdmin(ButtonAdmin):
     fieldsets = [
-        (None, {'fields': ('paciente', ('date_consulta','hora'),('motivo','enfermedad_actual'), ('certificacion', 'interconsulta'))}),
+        (None, {'fields': ('paciente', ('date_consulta','hora'),('motivo','enfermedad_actual'), 
+                          ('certificacion', 'interconsulta'), ('incapacidad_medica', ))}),
     ]
     inlines = [AntecedentesInline, ConsultaExamenFisicoInline, ConsultaParaclinicosInline, DiagnosticoInline, ConsultaFormulacionInline, ConsultaTratamientoInline ]
 
@@ -274,9 +277,22 @@ class ConsultaAdmin(ButtonAdmin):
         return None # Redirect or Response or None
     bar4.short_description='Certificacion'
     bar4.func_name='Certificacion'
+
+    def bar5(self, request, obj=None):
+        if obj != None: obj.bar5()
+        return None # Redirect or Response or None
+    bar5.short_description='Incapacidad'
+    bar5.func_name='Incapacidad'
+
+    def bar6(self, request, obj=None):
+        if obj != None: obj.bar6()
+        return None # Redirect or Response or None
+    bar6.short_description='Interconsulta'
+    bar6.func_name='Interconsulta'
+
     
-    list_buttons = [ bar, bar2, bar3, bar4 ]
-    change_buttons = [ bar, bar2, bar3, bar4 ]
+    list_buttons = [ bar, bar2, bar3, bar4, bar5, bar6 ]
+    change_buttons = [ bar, bar2, bar3, bar4, bar5, bar6 ]
     
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
         if db_field.name == "paciente":
@@ -295,6 +311,13 @@ class ConsultaAdmin(ButtonAdmin):
 
     def Certificacion(self, request, obj):
         return generar_reporte_certificacion(request, obj)
+
+    def Incapacidad(self, request, obj):
+        return generar_reporte_incapacidad(request, obj)
+
+    def Interconsulta(self, request, obj):
+        return generar_reporte_interconsulta(request, obj)
+
 
 admin.site.register(Consulta, ConsultaAdmin)
 
