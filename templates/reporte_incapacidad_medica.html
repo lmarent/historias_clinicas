@@ -4,34 +4,6 @@
 
 <h2 style="text-align: center;"><strong>INCAPACIDAD MEDICA</strong></h2>
 
-<h3><strong>Datos del Doctor</strong></h3>
-<table style="height: 28px; width: 100%; border-collapse: collapse; border-style: hidden;" border="0">
-<tbody>
-<tr style="height: 10px;">
-<td style="width: 15%; height: 10px;">Nombre:</td>
-<td style="width: 85%; height: 10px;">{{medico.nombre_impreso}}</td>
-</tr>
-
-<tr style="height: 10px;">
-<td style="width: 15%; height: 10px;">Especialidad:</td>
-<td style="width: 85%; height: 10px;">{{medico.especialidad}}</td>
-</tr>
-
-<tr style="height: 10px;">
-<td style="width: 15%; height: 10px;">Direccion:</td>
-<td style="width: 50%; height: 10px;">{{medico.direccion}}</td>
-<td style="width: 15%; height: 10px;">Telefono:</td>
-<td style="width: 20%; height: 10px;">{{medico.telefono}}</td>
-</tr>
-
-<tr style="height: 10px;">
-<td style="width: 25%; height: 10px;">Registro Medico:</td>
-<td style="width: 25%; height: 10px;">{{medico.registro_medico}}</td>
-<td style="width: 25%; height: 10px;">Cedula:</td>
-<td style="width: 25%; height: 10px;">{{medico.numero_documento}}</td>
-</tr>
-</tbody>
-</table>
 <h3><strong>Datos del Paciente</strong></h3>
 <table style="height: 28px; width: 100%; border-collapse: collapse; border-style: hidden;" border="0">
 <tbody>
@@ -59,6 +31,7 @@
 
 {% for consulta in consultas %}
 <p style="text-align: center;"><strong>Fecha de Consulta: {{consulta.date_consulta}}</strong></p>
+<p style="text-align: center;"><strong>Hora de Consulta: {{consulta.hora}}</strong></p>
 <table style="height: 23px; width: 100%; border-collapse: collapse; border-style: hidden;" border="0">
 <tbody>
 
@@ -69,12 +42,12 @@
 {{consulta.incapacidad_medica}}
 <p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;">{{medico.nombre_impreso}}</p>
-<p style="text-align: left;">Registro Medico: {{medico.registro_medico}}</p>
-<p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;">Firma</p>
 {% endfor %}
+
+<p style="text-align: left;">______________________________________</p>
+<p style="text-align: left;">Profesional: {{medico.nombre_impreso}}</p>
+<p style="text-align: left;">Especialidad: {{medico.especialidad}}</p>
+<p style="text-align: left;">Registro Medico: {{medico.registro_medico}}</p>
 
 </body>
 </html>

@@ -42,73 +42,20 @@ body {
 </thead>
 <tbody>
 <tr style="height: 10px;">
-<td style="height: 18px; text-align: center; width: 100%" colspan="12">DATOS DEL PRESTADOR</td>
-</tr>
-
 <tr style="height: 25px;">
-<td class="tg-0pky" style="height: 18px; width: 34%;" colspan="4" >
-  <div style="float:left;margin-right:20px;">
-    <label>Departamento:</label>  
-    Cundinamarca
-  </div> 
-</td>
-<td class="tg-0pky" style="height: 18px; width: 34%;" colspan="4">
-  <div style="float:left;margin-right:20px;">
-    <label for="name">Municipio:</label>  
-    <label>{{medico.ciudad}}</label>
-  </div>
-</td>
-<td class="tg-0pky" style="height: 18px; width: 32%;" colspan="4">
-  <div style="float:left;margin-right:20px;">
-    <label for="name">Registro Medico</label>  
-    <label>{{medico.registro_medico}}</label>
-  </div>  
-</td>
-</tr>
-
-<tr style="height: 18px;">
-<td class="tg-0pky" style="height: 18px; width: 50%;" colspan="6">
-  <div style="float:left;margin-right:20px;">
-    <label for="name">Doc Identificacion:</label>  
-    <label>{{medico.numero_documento}}</label>
-  </div>  
-</td>
-<td class="tg-0pky" style="height: 18px; width: 50%;" colspan="6">
-  <div style="float:left;margin-right:20px;">
-    <label for="name">Nombre:</label>  
-    <label>{{medico.nombre_impreso}}</label>
-  </div>  
-</td>
-</tr>
-<tr style="height: 18px;">
-<td class="tg-0pky" style="height: 18px; width: 50%;" colspan="6">
-  <div style="float:left;margin-right:20px;">
-    <label for="name">Direccion:</label>  
-    <label>{{medico.direccion}}</label>
-  </div>  
-</td>
-<td class="tg-0pky" style="height: 18px; width: 50%;" colspan="6">
-  <div style="float:left;margin-right:20px;">
-    <label for="name">Telefono:</label>  
-    <label>{{medico.telefono}}</label>
-  </div>  
-</td>
-</tr>
-
-<tr style="height: 18px;">
-<td class="tg-0pky" style="height: 12px; width: 100%; text-align: center;" colspan="12">DATOS DEL PACIENTE</td>
+<td class="tg-0pky" style="height: 12px; width: 100%; text-align: center; font-size: 14px; font-weight: bold;" colspan="12">DATOS DEL PACIENTE</td>
 </tr>
 <tr style="height: 36px;">
-<td class="tg-0pky" style="height: 36px; width: 34%;" colspan="4">
-  <div style="float:left;margin-right:20px;">
+<td class="tg-0pky" style="height: 36px; width: 34%; font-size: 14px;" colspan="4">
+  <div style="float:left;margin-right:20px; font-weight: bold;">
     <label for="name">Doc Identificacion:</label>  
   </div>  
   <div style="float:left;margin-right:20px;">
     <label>{{paciente.numero_documento}}</label>
   </div>  
 </td>
-<td class="tg-0pky" style="height: 36px; width: 34%;" colspan="4">
-  <div style="float:left;margin-right:20px;">
+<td class="tg-0pky" style="height: 36px; width: 34%; font-size: 14px;" colspan="4">
+  <div style="float:left;margin-right:20px; font-weight: bold;">
     <label for="name">Nombres:</label>  
   </div>  
   <div style="float:left;margin-right:20px;">
@@ -116,8 +63,8 @@ body {
   </div>  
 
 </td>
-<td class="tg-0pky" style="height: 36px; width: 34%;" colspan="4">
-  <div style="float:left;margin-right:20px;">
+<td class="tg-0pky" style="height: 36px; width: 34%; font-size: 14px;" colspan="4">
+  <div style="float:left;margin-right:20px; font-weight: bold;">
     <label>Apellidos:</label>  
   </div>  
   <div style="float:left;margin-right:20px;">
@@ -127,17 +74,17 @@ body {
 </tr>
 
 <tr>
-<td class="tg-0pky" style="height: 36px; width: 50%;" colspan="6">
-  <div style="float:left;margin-right:20px;">
-    <label>Diagnostico Principal:</label>  
+<td class="tg-0pky" style="height: 36px; width: 50%; font-size: 14px" colspan="6">
+  <div style="float:left;margin-right:20px; font-weight: bold;">
+    <label>Diagnóstico Principal:</label>  
   </div>  
   <div style="float:left;margin-right:20px;">
     <label>{{diagnostico.diagnostico_principal}}</label>
   </div>  
 
 </td>
-<td class="tg-0pky" style="height: 36px; width: 50%;" colspan="6">
-  <div style="float:left;margin-right:20px;">
+<td class="tg-0pky" style="height: 36px; width: 50%; font-size: 14px" colspan="6">
+  <div style="float:left;margin-right:20px; font-weight: bold;">
     <label>Diagnostico secundario:</label>  
   </div>  
   <div style="float:left;margin-right:20px;">
@@ -148,9 +95,9 @@ body {
 </tr>
 
 <tr>
-<td class="tg-0pky" style="height: 10px; width: 100%; text-align: left;" colspan="12" width= "694px">
-  <div style="float:left;margin-right:20px;" colspan="12">
-    <label for="name">MEDICAMENTOS</label>     
+<td class="tg-0pky" style="height: 10px; width: 100%; text-align: left; font-size: 14px" colspan="12" width= "694px">
+  <div style="float:left;margin-right:20px; font-weight: bold;" colspan="12">
+    <label for="name">Medicamentos</label>     
   </div>
   {%if consulta.historias_consultaformulacion_consulta.all %}
   {% for medicamento in consulta.historias_consultaformulacion_consulta.all %}
@@ -168,9 +115,10 @@ body {
 
 </td>
 </tr>
-
 <tr style="height: 18px;">
-<td class="tg-0pky" style="height: 18px; width: 100%;" colspan="12">PROFESIONAL TRATANTE</td>
+</tr>
+<tr style="height: 18px;">
+<td class="tg-0pky" style="height: 18px; width: 100%;" colspan="12">Profesional Tratante</td>
 </tr>
 <tr style="height: 18px;">
 <td class="tg-0pky" style="height: 18px; width: 50%;" colspan="6">

@@ -211,42 +211,86 @@ class PacienteAdmin(ButtonAdmin):
     
 admin.site.register(Paciente, PacienteAdmin)
 
+
 class AntecedentesInline(admin.StackedInline):
     model = ConsultaAntecedentes
     extra = 1
     classes = ['collapse']
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
 
 class DiagnosticoInline(admin.StackedInline):
     model = ConsultaDiagnostico
     extra = 1
     classes = ['collapse']
 
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+
 class ConsultaExamenFisicoInline(admin.StackedInline):
     model = ConsultaExamenFisico
     extra = 1
     classes = ['collapse']
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
 
 class ConsultaParaclinicosInline(admin.StackedInline):
     model = ConsultaParaclinicos
     extra = 1
     classes = ['collapse']
 
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+
 class ConsultaFormulacionInline(admin.TabularInline):
     model = ConsultaFormulacion
     extra = 1
     classes = ['collapse']
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
 
 class ConsultaTratamientoInline(admin.TabularInline):
     model = ConsultaTratamiento
     max_num = 1
     classes = ['collapse']
 
+    def has_change_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+
 class ConsultaAdmin(ButtonAdmin):
     fieldsets = [
         (None, {'fields': ('paciente', ('date_consulta','hora'),('motivo','enfermedad_actual'), 
                           ('certificacion', 'interconsulta'), ('incapacidad_medica', ))}),
     ]
-    inlines = [AntecedentesInline, ConsultaExamenFisicoInline, ConsultaParaclinicosInline, DiagnosticoInline, ConsultaFormulacionInline, ConsultaTratamientoInline ]
+    inlines = [AntecedentesInline, ConsultaExamenFisicoInline, ConsultaParaclinicosInline, 
+                DiagnosticoInline, ConsultaFormulacionInline, ConsultaTratamientoInline ]
 
     class Media:
          js = ['js/jquery.js',]
@@ -317,6 +361,14 @@ class ConsultaAdmin(ButtonAdmin):
 
     def Interconsulta(self, request, obj):
         return generar_reporte_interconsulta(request, obj)
+
+    def get_readonly_fields(self, request, obj=None):
+        "Una vez se crea la consulta y se guarda no debe dejarse modificar"
+        if obj is not None:
+            ro = [f.name for f in self.model._meta.fields]
+            return ro
+
+        return self.readonly_fields
 
 
 admin.site.register(Consulta, ConsultaAdmin)

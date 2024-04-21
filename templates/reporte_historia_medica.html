@@ -55,6 +55,7 @@
 
 {% for consulta in consultas %}
 <p style="text-align: center;"><strong>Fecha de Consulta: {{consulta.date_consulta}}</strong></p>
+<p style="text-align: center;"><strong>Hora de Consulta: {{consulta.hora}}</strong></p>
 <table style="height: 23px; width: 100%; border-collapse: collapse; border-style: hidden;" border="0">
 <tbody>
 <tr style="height: 10px;">
@@ -133,11 +134,36 @@
 {% endfor %}
 </tbody>
 </table>
+<h3 style="text-align: left;"><strong>Paraclinicos</strong></h3>
+<table style="height: 23px; width: 100.142%; border-collapse: collapse; border-style: hidden;" border="0">
+<tbody>
+{% for paraclinico in consulta.historias_consultaparaclinicos_consulta.all %}
+<tr style="height: 10px;">
+<td style="width: 23.7926%; height: 18px;">{{paraclinico.paraclinico}}</td>
+<td style="width: 23.7926%; height: 18px;">{{paraclinico.texto_encontrado}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+<h3 style="text-align: left;"><strong>Formulacion</strong></h3>
+<table style="height: 23px; width: 100.142%; border-collapse: collapse; border-style: hidden;" border="0">
+<tbody>
+{% for formulacion in consulta.historias_consultaformulacion_consulta.all %}
+<tr style="height: 10px;">
+<td style="width: 23.7926%; height: 18px;">{{formulacion.nombre_del_medicamento}}</td>
+<td style="width: 23.7926%; height: 18px;">{{formulacion.cantidad}}</td>
+<td style="width: 23.7926%; height: 18px;">{{formulacion.vias_suministro_medicamento}}</td>
+<td style="width: 23.7926%; height: 18px;">{{formulacion.dosificacion}}</td>
+<td style="width: 23.7926%; height: 18px;">{{formulacion.tiempoUso}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
 {% endfor %}
 <p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;">{{medico.nombre_impreso}}</p>
+<p style="text-align: left;">______________________________________</p>
+<p style="text-align: left;">Profesional: {{medico.nombre_impreso}}</p>
+<p style="text-align: left;">Especialidad: {{medico.especialidad}}</p>
 <p style="text-align: left;">Registro Medico: {{medico.registro_medico}}</p>
-<p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;">Firma</p>

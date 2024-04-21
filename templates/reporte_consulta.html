@@ -1,42 +1,14 @@
 <h2 style="text-align: center;"><strong>REPORTE DE CONSULTA</strong></h2>
 
-<h3><strong>Datos del Doctor</strong></h3>
-<table style="height: 28px; width: 100%; border-collapse: collapse; border-style: hidden;" border="0">
-<tbody>
-<tr style="height: 10px;">
-<td style="width: 15%; height: 10px;">Nombre:</td>
-<td style="width: 85%; height: 10px;">{{medico.nombre_impreso}}</td>
-</tr>
-
-<tr style="height: 10px;">
-<td style="width: 15%; height: 10px;">Especialidad:</td>
-<td style="width: 85%; height: 10px;">{{medico.especialidad}}</td>
-</tr>
-
-<tr style="height: 10px;">
-<td style="width: 15%; height: 10px;">Direccion:</td>
-<td style="width: 50%; height: 10px;">{{medico.direccion}}</td>
-<td style="width: 15%; height: 10px;">Telefono:</td>
-<td style="width: 20%; height: 10px;">{{medico.telefono}}</td>
-</tr>
-
-<tr style="height: 10px;">
-<td style="width: 25%; height: 10px;">Registro Medico:</td>
-<td style="width: 25%; height: 10px;">{{medico.registro_medico}}</td>
-<td style="width: 25%; height: 10px;">Cedula:</td>
-<td style="width: 25%; height: 10px;">{{medico.numero_documento}}</td>
-</tr>
-</tbody>
-</table>
 <h3><strong>Datos del Paciente</strong></h3>
 <table style="height: 28px; width: 100%; border-collapse: collapse; border-style: hidden;" border="0">
 <tbody>
 <tr style="height: 10px;">
-<td style="width: 15%; height: 10px;">Nombres:</td>
+<td style="width: 15%; height: 10px; font-weight: bold;">Nombres:</td>
 <td style="width: 85%; height: 10px;">{{paciente.nombres}}</td>
 </tr>
 <tr style="height: 18px;">
-<td style="width: 15%; height: 10px;">Apellidos:</td>
+<td style="width: 15%; height: 10px; font-weight: bold;">Apellidos:</td>
 <td style="width: 85%; height: 10px;">{{paciente.apellidos}}</td>
 </tr>
 </tbody>
@@ -44,10 +16,10 @@
 <table style="height: 23px; width: 100%; border-collapse: collapse; border-style: hidden;" border="0">
 <tbody>
 <tr style="height: 10px;">
-<td style="width: 15%; height: 10px;">Edad:</td>
+<td style="width: 15%; height: 10px; font-weight: bold;">Edad:</td>
 <td style="width: 15%; height: 10px;">{{paciente.edad}} Anos</td>
 <td style="width: 20%;">&nbsp;</td>
-<td style="width: 25%; height: 10px;">Num Documento:</td>
+<td style="width: 25%; height: 10px; font-weight: bold;">Num Documento:</td>
 <td style="width: 25%; height: 10px;">{{paciente.numero_documento}}</td>
 </tr>
 </tbody>
@@ -55,10 +27,11 @@
 
 {% for consulta in consultas %}
 <p style="text-align: center;"><strong>Fecha de Consulta: {{consulta.date_consulta}}</strong></p>
+<p style="text-align: center;"><strong>Hora de Consulta: {{consulta.hora}}</strong></p>
 <table style="height: 23px; width: 100%; border-collapse: collapse; border-style: hidden;" border="0">
 <tbody>
 <tr style="height: 10px;">
-<td style="width: 25%; height: 10px; text-align: left;">Motivo:</td>
+<td style="width: 25%; height: 10px; text-align: left; font-weight: bold;">Motivo:</td>
 <td style="width: 85%; height: 10px; text-align: left;">{{consulta.motivo}}</td>
 </tr>
 <tr style="height: 10px;">
@@ -66,7 +39,7 @@
 </tr>
 
 <tr style="height: 10px;">
-<td style="width: 25%; height: 10px; text-align: left;">Enfermedad Actual:</td>
+<td style="width: 25%; height: 10px; text-align: left; font-weight: bold;">Enfermedad Actual:</td>
 <td style="width: 85%; height: 10px; text-align: left;">{{consulta.enfermedad_actual}}</td>
 </tr>
 
@@ -94,7 +67,7 @@
 {% endfor %}
 </tbody>
 </table>
-<h3 style="text-align: left;"><strong>Diagnostico</strong></h3>
+<h3 style="text-align: left;"><strong>Diagnóstico</strong></h3>
 <table style="height: 23px; width: 100.142%; border-collapse: collapse; border-style: hidden;" border="0">
 <tbody>
 {% for diagnostico in consulta.historias_consultadiagnostico_consulta.all %}
@@ -136,8 +109,7 @@
 {% endfor %}
 <p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;">{{medico.nombre_impreso}}</p>
+<p style="text-align: left;">______________________________________</p>
+<p style="text-align: left;">Profesional: {{medico.nombre_impreso}}</p>
+<p style="text-align: left;">Especialidad: {{medico.especialidad}}</p>
 <p style="text-align: left;">Registro Medico: {{medico.registro_medico}}</p>
-<p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;">Firma</p>
