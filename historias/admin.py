@@ -214,7 +214,7 @@ admin.site.register(Paciente, PacienteAdmin)
 
 class AntecedentesInline(admin.StackedInline):
     model = ConsultaAntecedentes
-    extra = 1
+    extra = 0
     classes = ['collapse']
 
     def has_change_permission(self, request, obj=None):
@@ -226,7 +226,7 @@ class AntecedentesInline(admin.StackedInline):
 
 class DiagnosticoInline(admin.StackedInline):
     model = ConsultaDiagnostico
-    extra = 1
+    extra = 0
     classes = ['collapse']
 
     def has_change_permission(self, request, obj=None):
@@ -238,7 +238,7 @@ class DiagnosticoInline(admin.StackedInline):
 
 class ConsultaExamenFisicoInline(admin.StackedInline):
     model = ConsultaExamenFisico
-    extra = 1
+    extra = 0
     classes = ['collapse']
 
     def has_change_permission(self, request, obj=None):
@@ -250,7 +250,7 @@ class ConsultaExamenFisicoInline(admin.StackedInline):
 
 class ConsultaParaclinicosInline(admin.StackedInline):
     model = ConsultaParaclinicos
-    extra = 1
+    extra = 0
     classes = ['collapse']
 
     def has_change_permission(self, request, obj=None):
@@ -262,7 +262,7 @@ class ConsultaParaclinicosInline(admin.StackedInline):
 
 class ConsultaFormulacionInline(admin.TabularInline):
     model = ConsultaFormulacion
-    extra = 1
+    extra = 0
     classes = ['collapse']
 
     def has_change_permission(self, request, obj=None):
@@ -274,7 +274,7 @@ class ConsultaFormulacionInline(admin.TabularInline):
 
 class ConsultaTratamientoInline(admin.TabularInline):
     model = ConsultaTratamiento
-    max_num = 1
+    max_num = 0
     classes = ['collapse']
 
     def has_change_permission(self, request, obj=None):
