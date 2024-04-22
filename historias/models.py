@@ -382,6 +382,9 @@ class Paciente(models.Model):
     persona_responsable = models.CharField(max_length=60)
     tel_responsable = models.CharField(max_length=12)
     fecha_alta = models.DateField('Fecha de creacion')
+    persona_cuidadora = models.CharField(max_length=60, blank=True, null=True)
+    tel_cuidadora = models.CharField(max_length=12, blank=True, null=True)
+
     
     def __unicode__(self):
         return self.numero_documento + '-' + self.primer_nombre + ' ' + self.segundo_nombre + ' ' + self.primer_apellido + ' ' + self.segundo_apellido 

@@ -1,6 +1,11 @@
 <!DOCTYPE html>
-<html>
-<title>SOLICITUD INTERCONSULTA</title>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>SOLICITUD INTERCONSULTA</title>
+</head>
+<body>
 
 <h2 style="text-align: center;"><strong>SOLICITUD INTERCONSULTA</strong></h2>
 
@@ -42,12 +47,13 @@
 {{consulta.interconsulta}}
 <p style="text-align: left;">&nbsp;</p>
 <p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;">{{medico.nombre_impreso}}</p>
-<p style="text-align: left;">Registro Medico: {{medico.registro_medico}}</p>
-<p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;">Firma</p>
 {% endfor %}
+
+<img src="{% static 'firma.jpg' %}" width="3%" height="3%"> 
+<p style="text-align: left;">______________________________________</p>
+<p style="text-align: left;">Profesional: {{medico.nombre_impreso}}</p>
+<p style="text-align: left;">Especialidad: {{medico.especialidad}}</p>
+<p style="text-align: left;">Registro Medico: {{medico.registro_medico}}</p>
 
 </body>
 </html>

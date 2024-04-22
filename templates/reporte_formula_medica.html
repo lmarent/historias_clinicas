@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html>
-<title>Formula Medica</title>
+<html lang="es">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Formula Medica</title>
+</head>
+<body>
 
 
 <style type="text/css">
@@ -150,7 +156,11 @@ body {
     <label>{{medico.registro_medico}}</label>
   </div>  
 </td>
-<td class="tg-0pky" style="height: 36px; width: 415px;" colspan="6" rowspan="2">Firma</td>
+<td class="tg-0pky" style="height: 36px; width: 415px;" colspan="6" rowspan="2">
+<img id="firma" src="{% static 'firma.jpg' %}" width="3%" height="3%">
+<br>
+<label for="firma">Firma</label>
+</td>
 </tr>
 <tr style="height: 18px;">
 <td class="tg-0pky" style="height: 18px; width: 273px;" colspan="6" width="273px">

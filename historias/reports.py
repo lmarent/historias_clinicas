@@ -35,7 +35,7 @@ def generar_reporte_historia_clinica(request, paciente: Paciente):
     consultas = paciente.historias_consulta_paciente.all()
     html_string = render_to_string('reporte_historia_medica.html', 
                                    {'medico': medico, 'paciente' : paciente, 'consultas': consultas})
-    html = HTML(string = html_string)
+    html = HTML(string = html_string, base_url=request.build_absolute_uri())
     result = html.write_pdf(file_name)
 
 
@@ -58,7 +58,7 @@ def generar_reporte_consulta(request, consulta: Consulta):
                                    {'medico': medico, 
                                     'paciente' : paciente, 
                                     'consultas': consultas})
-    html = HTML(string = html_string)
+    html = HTML(string = html_string, base_url=request.build_absolute_uri())
     result = html.write_pdf(file_name)
 
 
@@ -83,7 +83,7 @@ def generar_reporte_formula_medica(request, consulta: Consulta):
                                     'paciente' : paciente, 
                                     'consulta': consulta,
                                     'diagnostico': diagnostico})
-    html = HTML(string = html_string)
+    html = HTML(string = html_string, base_url=request.build_absolute_uri())
     result = html.write_pdf(file_name)
 
 
@@ -108,7 +108,7 @@ def generar_reporte_examenes(request, consulta: Consulta):
                                     'paciente' : paciente, 
                                     'consulta': consulta,
                                     'diagnostico': diagnostico})
-    html = HTML(string = html_string)
+    html = HTML(string = html_string, base_url=request.build_absolute_uri())
     result = html.write_pdf(file_name)
 
 
@@ -132,7 +132,7 @@ def generar_reporte_certificacion(request, consulta: Consulta):
                                    {'medico': medico, 
                                     'paciente' : paciente, 
                                     'consultas': consultas})
-    html = HTML(string = html_string)
+    html = HTML(string = html_string, base_url=request.build_absolute_uri())
     result = html.write_pdf(file_name)
 
 
@@ -156,7 +156,7 @@ def generar_reporte_incapacidad(request, consulta: Consulta):
                                    {'medico': medico, 
                                     'paciente' : paciente, 
                                     'consultas': consultas})
-    html = HTML(string = html_string)
+    html = HTML(string = html_string, base_url=request.build_absolute_uri())
     result = html.write_pdf(file_name)
 
 
@@ -180,7 +180,7 @@ def generar_reporte_interconsulta(request, consulta: Consulta):
                                    {'medico': medico, 
                                     'paciente' : paciente, 
                                     'consultas': consultas})
-    html = HTML(string = html_string)
+    html = HTML(string = html_string, base_url=request.build_absolute_uri())
     result = html.write_pdf(file_name)
 
 

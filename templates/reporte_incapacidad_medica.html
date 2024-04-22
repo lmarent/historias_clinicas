@@ -1,6 +1,11 @@
 <!DOCTYPE html>
-<html>
-<title>INCAPACIDAD MEDICA</title>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>INCAPACIDAD MEDICA</title>
+</head>
+<body>
 
 <h2 style="text-align: center;"><strong>INCAPACIDAD MEDICA</strong></h2>
 
@@ -44,6 +49,7 @@
 <p style="text-align: left;">&nbsp;</p>
 {% endfor %}
 
+<img src="{% static 'firma.jpg' %}" width="3%" height="3%"> 
 <p style="text-align: left;">______________________________________</p>
 <p style="text-align: left;">Profesional: {{medico.nombre_impreso}}</p>
 <p style="text-align: left;">Especialidad: {{medico.especialidad}}</p>

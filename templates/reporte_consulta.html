@@ -1,3 +1,12 @@
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte de Consulta</title>
+</head>
+<body>
 <h2 style="text-align: center;"><strong>REPORTE DE CONSULTA</strong></h2>
 
 <h3><strong>Datos del Paciente</strong></h3>
@@ -107,9 +116,10 @@
 </tbody>
 </table>
 {% endfor %}
-<p style="text-align: left;">&nbsp;</p>
-<p style="text-align: left;">&nbsp;</p>
+<img src="{% static 'firma.jpg' %}" width="3%" height="3%"> 
 <p style="text-align: left;">______________________________________</p>
 <p style="text-align: left;">Profesional: {{medico.nombre_impreso}}</p>
 <p style="text-align: left;">Especialidad: {{medico.especialidad}}</p>
 <p style="text-align: left;">Registro Medico: {{medico.registro_medico}}</p>
+</body>
+</html>

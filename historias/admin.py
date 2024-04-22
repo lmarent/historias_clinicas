@@ -187,6 +187,8 @@ class PacienteAdmin(ButtonAdmin):
                                        }), 
         ('Datos Persona Responsable',  {'fields': (('persona_responsable','tel_responsable'))
                                        }),                               
+        ('Datos Persona Ciudadora',  {'fields': (('persona_cuidadora','tel_cuidadora'))
+                                       }),                               
         ('Datos de contacto', {'fields': (('telefono_casa', 'direccion_casa', 'ciudad_casa'), 
                                           ('telefono_oficina', 'direccion_oficina', 'ciudad_oficina')),
                                           'classes': ['collapse']  
